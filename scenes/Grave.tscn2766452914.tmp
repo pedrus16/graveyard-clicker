@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bheljvbx4358e"]
+
+[ext_resource type="Script" uid="uid://cdhcj3optie4y" path="res://scenes/grave.gd" id="1_inmiy"]
+[ext_resource type="PackedScene" uid="uid://ddoejdp6x4187" path="res://assets/sources/grave.fbx" id="1_mlivn"]
+[ext_resource type="PackedScene" uid="uid://xdujc4kkxf7t" path="res://scenes/GraveHole.tscn" id="2_inmiy"]
+
+[sub_resource type="Curve" id="Curve_8wpt2"]
+_data = [Vector2(0, 0), 0.0, 2.8243446, 0, 0, Vector2(0.64799994, 1), 8.505747e-07, 8.505747e-07, 0, 0, Vector2(1, 0), -4.761901, 3.0612237, 0, 0]
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.4, 0.1, 1)
+
+[node name="grave" type="Node3D" unique_id=1604587161]
+script = ExtResource("1_inmiy")
+curve = SubResource("Curve_8wpt2")
+
+[node name="Grave" parent="." unique_id=562705348 instance=ExtResource("1_mlivn")]
+unique_name_in_owner = true
+
+[node name="GraveHole" parent="." unique_id=391195597 instance=ExtResource("2_inmiy")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035215497, 0, 0)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1100918935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4901161e-08, 0.04999998, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=185399913]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+[connection signal="mouse_entered" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]

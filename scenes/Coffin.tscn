@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d10ociowybpbv"]
+
+[ext_resource type="Script" uid="uid://bah4isvc3wrkf" path="res://scenes/coffin.gd" id="1_c27gb"]
+[ext_resource type="PackedScene" uid="uid://u008fmwcbfoa" path="res://assets/sources/models/coffin-lid.fbx" id="2_c27gb"]
+[ext_resource type="PackedScene" uid="uid://cbd2ju1ofp158" path="res://assets/sources/models/coffin-open.fbx" id="3_kunth"]
+[ext_resource type="AudioStream" uid="uid://cghsuxlr2dqvb" path="res://assets/sources/audio/pop.ogg" id="4_bpky7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xcnjf"]
+points = PackedVector3Array(0.28690374, 0.2, -0.1167016, 0.13564458, 0.2, 0.39389864, 0.28690374, 0, -0.1167016, 0.27870327, 0.2, -0.17714366, 0.10216874, 0.2, 0.41891196, 0.13564458, 0, 0.39389864, 0.27870327, 0, -0.17714366, 0.14378887, 0.2, -0.39398062, 0.10216874, 0, 0.41891196, -0.1022249, 0.2, 0.41891196, 0.14378887, 0, -0.39398062, 0.09879869, 0.2, -0.41891196, -0.1022249, 0, 0.41891196, -0.13570075, 0.2, 0.39389864, 0.09879869, 0, -0.41891196, -0.098854855, 0.2, -0.41891196, -0.13570075, 0, 0.39389864, -0.28690374, 0.2, -0.1167016, -0.098854855, 0, -0.41891196, -0.14384504, 0.2, -0.39398062, -0.28690374, 0, -0.1167016, -0.27875945, 0.2, -0.17714366, -0.14384504, 0, -0.39398062, -0.27875945, 0, -0.17714366)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ho01u"]
+points = PackedVector3Array(0.28690374, 0.07499266, -0.1167016, 0.28690374, 0.024997553, -0.1167016, 0.27870327, 0.07499266, -0.17714366, 0.22652364, 0.125, -0.14893189, 0.22652364, 0.125, -0.052979082, 0.13564458, 0.07499266, 0.39389864, 0.26140368, 0, -0.11866987, 0.2546636, 0, -0.1684505, 0.27870327, 0.024997553, -0.17714366, 0.13564458, 0.024997553, 0.39389864, 0.14378887, 0.07499266, -0.39398062, 0.20473066, 0.125, -0.17394523, 0.12654546, 0.125, 0.247017, 0.10216874, 0.07499266, 0.41891196, 0.10475245, 0.125, 0.27203032, 0.11402008, 0, 0.3788086, 0.12598377, 0, -0.37528214, 0.14378887, 0.024997553, -0.39398062, 0.10216874, 0.024997553, 0.41891196, 0.09385595, 0, 0.39389864, 0.09879869, 0.07499266, -0.41891196, -0.2047868, 0.125, -0.17394523, -0.1022249, 0.07499266, 0.41891196, -0.10480861, 0.125, 0.27203032, 0.09228325, 0, -0.39398062, 0.09879869, 0.024997553, -0.41891196, -0.1022249, 0.024997553, 0.41891196, -0.09391211, 0, 0.39389864, -0.098854855, 0.07499266, -0.41891196, -0.14384504, 0.07499266, -0.39398062, -0.22657982, 0.125, -0.14893189, -0.13570075, 0.07499266, 0.39389864, -0.1266016, 0.125, 0.247017, -0.09233941, 0, -0.39398062, -0.098854855, 0.024997553, -0.41891196, -0.13570075, 0.024997553, 0.39389864, -0.11407626, 0, 0.3788086, -0.27875945, 0.07499266, -0.17714366, -0.14384504, 0.024997553, -0.39398062, -0.28690374, 0.07499266, -0.1167016, -0.22657982, 0.125, -0.052979082, -0.12603994, 0, -0.37528214, -0.28690374, 0.024997553, -0.1167016, -0.26145986, 0, -0.11866987, -0.27875945, 0.024997553, -0.17714366, -0.25471973, 0, -0.1684505)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bpky7"]
+random_pitch = 1.2599211
+streams_count = 1
+stream_0/stream = ExtResource("4_bpky7")
+
+[node name="Coffin" type="Node3D" unique_id=282615336]
+script = ExtResource("1_c27gb")
+
+[node name="CoffinOpen" type="Node3D" parent="." unique_id=1055590431]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CoffinOpen" unique_id=1927191564]
+transform = Transform3D(1, 0, 0, 0, 1, -7.5497894e-08, 0, 7.5497894e-08, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CoffinOpen/StaticBody3D" unique_id=203042832]
+transform = Transform3D(1, 0, 0, 0, 1, 7.5497894e-08, 0, -7.5497894e-08, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_xcnjf")
+
+[node name="coffin-open" parent="CoffinOpen/StaticBody3D" unique_id=1773004461 instance=ExtResource("3_kunth")]
+
+[node name="CoffinLid" type="Node3D" parent="CoffinOpen" unique_id=424932217]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="CoffinOpen/CoffinLid" unique_id=1378901441]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 7.5497894e-08, 0, -7.5497894e-08, 1, 0, 0, 0)
+mass = 2.0
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CoffinOpen/CoffinLid/RigidBody3D" unique_id=568432514]
+shape = SubResource("ConvexPolygonShape3D_ho01u")
+
+[node name="coffin-lid" parent="CoffinOpen/CoffinLid/RigidBody3D" unique_id=724802085 instance=ExtResource("2_c27gb")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1761251375]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_bpky7")
+
+[connection signal="input_event" from="CoffinOpen/StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+[connection signal="input_event" from="CoffinOpen/CoffinLid/RigidBody3D" to="." method="_on_rigid_body_3d_input_event"]

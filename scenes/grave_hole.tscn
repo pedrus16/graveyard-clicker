@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cckmcj70siox8"]
+
+[ext_resource type="PackedScene" uid="uid://due0p4sxoqo2p" path="res://assets/sources/grave-hole.fbx" id="1_kp5wv"]
+
+[node name="grave-hole" unique_id=136235665 instance=ExtResource("1_kp5wv")]
+
+[node name="Cube" parent="." index="0" unique_id=379473969]
+ignore_occlusion_culling = true

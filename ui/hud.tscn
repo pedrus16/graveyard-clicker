@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://t55hd3dlfekg"]
+
+[ext_resource type="Script" uid="uid://daj4b5dmtaqhi" path="res://ui/hud.gd" id="1_276te"]
+[ext_resource type="PackedScene" uid="uid://d1jxjpmb4dduk" path="res://assets/sources/models/bone.blend" id="1_rbyyf"]
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+
+[node name="Hud" type="Control" unique_id=423708638]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_276te")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2105724740]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=309394858]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=1958427299]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(48, 48)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1975399687]
+
+[node name="bone2" parent="HBoxContainer/SubViewportContainer/SubViewport/Node3D" unique_id=1384356369 instance=ExtResource("1_rbyyf")]
+transform = Transform3D(0.49887472, -0.19337064, -0.8448264, 0.6618679, 0.714317, 0.2273381, 0.5595133, -0.6725766, 0.48434043, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport/Node3D" unique_id=1192421999]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.96666014, 0)
+projection = 1
+fov = 27.8
+size = 0.627
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/Node3D" unique_id=387794470]
+transform = Transform3D(1, 0, 0, 0, -0.608669, 0.7934243, 0, -0.7934243, -0.608669, 0, 0.30137897, 0)
+light_energy = 2.0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SubViewportContainer/SubViewport/Node3D" unique_id=258462883]
+environment = SubResource("Environment_g4v7s")
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=150165215]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "0"
+horizontal_alignment = 1

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dfjklco1dej1i"]
+
+[ext_resource type="PackedScene" uid="uid://bs2wssd0da3w" path="res://scenes/zoo.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://dsotsvbl04dic" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://t55hd3dlfekg" path="res://ui/hud.tscn" id="2_sugp2"]
+
+[node name="Main" type="Node" unique_id=1337487456]
+script = ExtResource("1_sugp2")
+
+[node name="World" type="Node3D" parent="." unique_id=1408619323]
+
+[node name="zoo" parent="World" unique_id=637975188 instance=ExtResource("1_0wfyh")]
+
+[node name="Hud" parent="." unique_id=423708638 instance=ExtResource("2_sugp2")]

@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://bs2wssd0da3w"]
+
+[ext_resource type="PackedScene" uid="uid://d10ociowybpbv" path="res://scenes/Coffin.tscn" id="2_8wpt2"]
+[ext_resource type="PackedScene" uid="uid://btccvckws6q6u" path="res://scenes/Bone.tscn" id="3_cr7vb"]
+[ext_resource type="PackedScene" uid="uid://bheljvbx4358e" path="res://scenes/Grave.tscn" id="4_ctmmb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7numd"]
+
+[sub_resource type="Sky" id="Sky_3gngh"]
+sky_material = SubResource("ProceduralSkyMaterial_7numd")
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_3gngh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8j31"]
+depth_draw_mode = 2
+albedo_color = Color(0.37642002, 0.58, 0.12760001, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+size = Vector2(25, 25)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g4v7s"]
+
+[node name="Node3D" type="Node3D" unique_id=637975188]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1630440803]
+transform = Transform3D(0.7071068, -0.38511795, 0.5930297, 0, 0.83867055, 0.54463905, -0.7071068, -0.38511795, 0.5930297, 5, 5, 5)
+projection = 1
+size = 8.0
+near = 0.001
+far = 95.29
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=765088029]
+transform = Transform3D(0.8609545, 0.121695794, -0.4939102, 0.27332145, 0.70821977, 0.65093774, 0.42901334, -0.6954244, 0.57648313, 0, 7, 0)
+light_color = Color(0.85575485, 0.7336398, 0.6237836, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=758746727]
+environment = SubResource("Environment_g4v7s")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=759085398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013902903, 9.536743e-07, 0.0014357567)
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="Ground" unique_id=217494180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018888474, 0, 0.037776947)
+material_override = SubResource("StandardMaterial3D_a8j31")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1064418509]
+shape = SubResource("WorldBoundaryShape3D_g4v7s")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Ground" unique_id=1988919714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099487066, -0.4998169, 0.00894165)
+size = Vector3(25.06128, 1.0003662, 25.058044)
+
+[node name="grave" parent="." unique_id=1604587161 instance=ExtResource("4_ctmmb")]
+content = ExtResource("2_8wpt2")
+
+[node name="grave6" parent="." unique_id=1529539057 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+content = ExtResource("2_8wpt2")
+
+[node name="grave3" parent="." unique_id=364144161 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+content = ExtResource("2_8wpt2")
+
+[node name="grave7" parent="." unique_id=1317281357 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.6)
+content = ExtResource("2_8wpt2")
+
+[node name="grave4" parent="." unique_id=1210454860 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+content = ExtResource("2_8wpt2")
+
+[node name="grave8" parent="." unique_id=1053039088 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.6)
+content = ExtResource("2_8wpt2")
+
+[node name="grave5" parent="." unique_id=946717544 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+content = ExtResource("2_8wpt2")
+
+[node name="grave9" parent="." unique_id=1898370193 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.6)
+content = ExtResource("2_8wpt2")
+
+[node name="grave10" parent="." unique_id=1955871146 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+content = ExtResource("2_8wpt2")
+
+[node name="grave11" parent="." unique_id=1113310847 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.6)
+content = ExtResource("2_8wpt2")
+
+[node name="grave12" parent="." unique_id=1469668584 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2)
+content = ExtResource("2_8wpt2")
+
+[node name="grave13" parent="." unique_id=1218756677 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.7999997)
+content = ExtResource("2_8wpt2")
+
+[node name="grave14" parent="." unique_id=247194267 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3.2)
+content = ExtResource("2_8wpt2")
+
+[node name="grave15" parent="." unique_id=1102114255 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 4.7999997)
+content = ExtResource("2_8wpt2")
+
+[node name="grave16" parent="." unique_id=1178830467 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.2)
+content = ExtResource("2_8wpt2")
+
+[node name="grave17" parent="." unique_id=1135953395 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4.7999997)
+content = ExtResource("2_8wpt2")
+
+[node name="grave18" parent="." unique_id=1936567935 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 3.2)
+content = ExtResource("2_8wpt2")
+
+[node name="grave19" parent="." unique_id=55014846 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 4.7999997)
+content = ExtResource("2_8wpt2")
+
+[node name="grave20" parent="." unique_id=1303400907 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3.2)
+content = ExtResource("2_8wpt2")
+
+[node name="grave21" parent="." unique_id=1048332241 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4.7999997)
+content = ExtResource("2_8wpt2")
+
+[node name="grave2" parent="." unique_id=450973613 instance=ExtResource("4_ctmmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Coffin" parent="." unique_id=282615336 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="Coffin2" parent="." unique_id=1923348823 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="Coffin3" parent="." unique_id=1562009643 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, -2)
+
+[node name="Coffin4" parent="." unique_id=668179488 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, -3)
+
+[node name="Coffin5" parent="." unique_id=552443012 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0, -2)
+
+[node name="Coffin6" parent="." unique_id=1900057834 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0, -3)
+
+[node name="Coffin7" parent="." unique_id=1051955543 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0, -2)
+
+[node name="Coffin8" parent="." unique_id=1999262553 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0, -3)
+
+[node name="Coffin9" parent="." unique_id=1633995401 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -2)
+
+[node name="Coffin10" parent="." unique_id=1140040309 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -3)
+
+[node name="Coffin11" parent="." unique_id=746177148 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -2)
+
+[node name="Coffin12" parent="." unique_id=1573522055 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -3)
+
+[node name="Coffin13" parent="." unique_id=90775823 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0, -2)
+
+[node name="Coffin14" parent="." unique_id=877312688 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0, -3)
+
+[node name="Coffin15" parent="." unique_id=1169812667 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8999996, 0, -2)
+
+[node name="Coffin16" parent="." unique_id=1704063907 instance=ExtResource("2_8wpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8999996, 0, -3)
+
+[node name="Bone" parent="." unique_id=1763181824 instance=ExtResource("3_cr7vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8603098, 0.030814508, -0.9990263)
