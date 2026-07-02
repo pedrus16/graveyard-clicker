@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bi78iv21hliyv"]
+
+[ext_resource type="PackedScene" uid="uid://bcr72b3tjn2g5" path="res://scenes/levels/lobby.tscn" id="1_32lhk"]
+[ext_resource type="PackedScene" uid="uid://bhim8td3pv7jl" path="res://scenes/levels/level1.tscn" id="2_7g83o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpeaq"]
+
+[sub_resource type="Sky" id="Sky_3gngh"]
+sky_material = SubResource("ProceduralSkyMaterial_hpeaq")
+
+[sub_resource type="Environment" id="Environment_eb18a"]
+background_mode = 2
+sky = SubResource("Sky_3gngh")
+
+[node name="GameWorld" type="Node3D" unique_id=754943642]
+
+[node name="Lobby" parent="." unique_id=1431427445 instance=ExtResource("1_32lhk")]
+unique_name_in_owner = true
+
+[node name="Level1" parent="." unique_id=370910729 instance=ExtResource("2_7g83o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=977599759]
+transform = Transform3D(0.7071068, -0.38511795, 0.5930297, 0, 0.83867055, 0.54463905, -0.7071068, -0.38511795, 0.5930297, 5, 5, 14.75)
+projection = 1
+size = 8.0
+near = 0.001
+far = 95.29
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1459065419]
+transform = Transform3D(0.86095464, 0.121695906, -0.49391013, 0.27332148, 0.70821977, 0.6509379, 0.4290134, -0.69542426, 0.57648295, 0, 7, 0)
+light_color = Color(0.85575485, 0.7336398, 0.6237836, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1554720465]
+environment = SubResource("Environment_eb18a")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdhcj3optie4y" path="res://scenes/grave.gd" id="1_inmiy"]
 [ext_resource type="PackedScene" uid="uid://ddoejdp6x4187" path="res://assets/sources/models/grave.fbx" id="1_mlivn"]
+[ext_resource type="PackedScene" uid="uid://bre4qp7c7p40f" path="res://assets/sources/models/gravestone-round.fbx" id="3_boir7"]
 [ext_resource type="Texture2D" uid="uid://h7jah22eupm4" path="res://assets/sources/models/Textures/colormap.png" id="3_cf8n2"]
 [ext_resource type="PackedScene" uid="uid://due0p4sxoqo2p" path="res://assets/sources/models/grave-hole.fbx" id="4_cf8n2"]
 [ext_resource type="AudioStream" uid="uid://cvrj48ponelgh" path="res://assets/sources/audio/footstep_snow_000.ogg" id="5_wv3gw"]
@@ -159,13 +160,18 @@ rings = 3
 
 [node name="grave" type="Node3D" unique_id=1604587161]
 script = ExtResource("1_inmiy")
+clicks_to_open = 5
 curve = SubResource("Curve_8wpt2")
 
 [node name="GraveStone" type="StaticBody3D" parent="." unique_id=1921665528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.70000005)
 
 [node name="gravestone-bevel2" type="MeshInstance3D" parent="GraveStone" unique_id=1800471834]
+visible = false
 mesh = SubResource("ArrayMesh_kwden")
+
+[node name="gravestone-round" parent="GraveStone" unique_id=166029662 instance=ExtResource("3_boir7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.9604645e-08)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GraveStone" unique_id=1820352474]
 shape = SubResource("ConvexPolygonShape3D_cf8n2")
@@ -213,7 +219,7 @@ volume_db = 80.0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19189453, 0)
 emitting = false
-amount = 20
+amount = 10
 one_shot = true
 explosiveness = 1.0
 collision_base_size = 0.1

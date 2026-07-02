@@ -1,6 +1,4 @@
-extends Node3D
-
-var coffin = preload("res://scenes/Coffin.tscn")
+class_name Grave extends Node3D
 
 var rng = RandomNumberGenerator.new()
 
@@ -10,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 @export var curve: Curve
 @export var duration: float = 0.4
 @export var height: float = 1.2
-@export var content: Resource
+@export var content: PackedScene
 
 
 var dirt_height: float = -0.2
@@ -32,8 +30,7 @@ var clicks: int = 0:
 		if value:
 			%Grave.hide()
 			%"GraveHole".show()
-			%AudioDig.play()
-			%GPUParticles3D.emitting = true
+			#%GPUParticles3D.emitting = true
 			
 			if content:
 				%AudioPop.play(0.13)
@@ -42,11 +39,11 @@ var clicks: int = 0:
 				instance.global_position = global_position
 				
 				var random_distance = rng.randf_range(min_range, max_range)
-				var random_angle = PI
+				var random_angle = global_rotation.y + PI
 				var random_position = Vector2(cos(random_angle), sin(random_angle)) * random_distance
-				var random_rotation = rng.randf_range(-PI * 0.05, PI * 0.05)
+				var random_rotation =  rng.randf_range(-PI * 0.05, PI * 0.05)
 				
-				instance.global_rotation += Vector3(0, random_rotation, 0)
+				instance.global_rotation = global_rotation + Vector3(0, random_rotation, 0)
 				
 				var tween = get_tree().create_tween().set_parallel()
 				tween.tween_property(instance, "global_position", Vector3(random_position.x, 0.0, random_position.y), duration).as_relative()
@@ -73,6 +70,16 @@ func _process(_delta: float) -> void:
 	pass
 
 func dig() -> void:
+	if (clicks >= clicks_to_open): return
+	%AudioDig.play()
+	var gpu_particles: GPUParticles3D = %GPUParticles3D.duplicate()
+	gpu_particles.restart()
+	gpu_particles.finished.connect(
+		func ():
+			gpu_particles.queue_free()
+	)
+	add_child(gpu_particles)
+	
 	clicks += 1
 	
 func reset() -> void:

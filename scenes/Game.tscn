@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dfjklco1dej1i"]
+
+[ext_resource type="Script" uid="uid://dsotsvbl04dic" path="res://scenes/game_controller.gd" id="1_78awf"]
+[ext_resource type="PackedScene" uid="uid://bhim8td3pv7jl" path="res://scenes/levels/level1.tscn" id="2_s0nni"]
+[ext_resource type="PackedScene" uid="uid://bi78iv21hliyv" path="res://scenes/GameWorld.tscn" id="3_aug50"]
+[ext_resource type="PackedScene" uid="uid://t55hd3dlfekg" path="res://ui/hud.tscn" id="4_kiw3p"]
+
+[node name="Game" type="Node" unique_id=1337487456 groups=["main"]]
+script = ExtResource("1_78awf")
+level_scenes = Array[PackedScene]([ExtResource("2_s0nni")])
+
+[node name="World" type="Node3D" parent="." unique_id=1408619323]
+unique_name_in_owner = true
+
+[node name="World" parent="World" unique_id=754943642 instance=ExtResource("3_aug50")]
+
+[node name="GUI" type="Control" parent="." unique_id=650415448]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="hud" parent="GUI" unique_id=423708638 instance=ExtResource("4_kiw3p")]
+visible = false
+layout_mode = 1
