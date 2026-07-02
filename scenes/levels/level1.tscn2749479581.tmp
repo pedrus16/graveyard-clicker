@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2so1nfc6wmxf" path="res://assets/sources/models/iron-fence-border-gate.fbx" id="2_dd0lh"]
 [ext_resource type="PackedScene" uid="uid://dpj3qees2j8gh" path="res://assets/sources/models/iron-fence-border.fbx" id="3_bfxgj"]
 [ext_resource type="PackedScene" uid="uid://cngn3dy2nxgjp" path="res://scenes/scene_switch.tscn" id="4_dywbp"]
+[ext_resource type="PackedScene" uid="uid://bcr72b3tjn2g5" path="res://scenes/levels/lobby.tscn" id="5_1seuy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x6ivy"]
 
@@ -26,7 +27,7 @@ size = Vector2(25, 25)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bfxgj"]
 
-[node name="Level1" type="Node3D" unique_id=370910729 groups=["level"]]
+[node name="Level1" type="Node3D" unique_id=370910729]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=166530322]
 transform = Transform3D(0.7071068, -0.38511795, 0.5930297, 0, 0.83867055, 0.54463905, -0.7071068, -0.38511795, 0.5930297, 5, 5, 5)
@@ -89,4 +90,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
 
 [node name="LevelSwitchArrow" parent="." unique_id=460866769 instance=ExtResource("4_dywbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -4)
-level_index = -1
+level = ExtResource("5_1seuy")

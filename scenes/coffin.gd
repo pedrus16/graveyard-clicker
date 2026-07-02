@@ -7,11 +7,11 @@ var Bone = preload("res://scenes/Bone.tscn")
 var rng = RandomNumberGenerator.new()
 var _open = false
 
-func open(position: Vector3) -> void:
+func open(origin: Vector3) -> void:
 	if _open: return
 	_open = true
 	%CoffinLid/RigidBody3D.freeze = false
-	%CoffinLid/RigidBody3D.apply_impulse(Vector3(0, 10.0, 0), position - %CoffinLid/RigidBody3D.global_position)
+	%CoffinLid/RigidBody3D.apply_impulse(Vector3(0, 10.0, 0), origin - %CoffinLid/RigidBody3D.global_position)
 	%CoffinLid/RigidBody3D.input_ray_pickable = false
 	%AudioStreamPlayer3D.play(0.13)
 	
@@ -30,7 +30,7 @@ func open(position: Vector3) -> void:
 		tween.tween_callback(
 			func ():
 				bone.queue_free()
-				Main.bones += 1
+				Global.bones += 1
 		)
 		#get_tree().create_timer(1.0).timeout.connect(
 			#func():
@@ -53,15 +53,15 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_static_body_3d_input_event(_camera: Node, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		open(event_position)
 
 
-func _on_rigid_body_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_rigid_body_3d_input_event(_camera: Node, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		open(event_position)

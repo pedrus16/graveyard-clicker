@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bcr72b3tjn2g5"]
+
+[ext_resource type="PackedScene" uid="uid://b2so1nfc6wmxf" path="res://assets/sources/models/iron-fence-border-gate.fbx" id="1_kr2ft"]
+[ext_resource type="PackedScene" uid="uid://dpj3qees2j8gh" path="res://assets/sources/models/iron-fence-border.fbx" id="2_l7pl7"]
+[ext_resource type="PackedScene" uid="uid://cngn3dy2nxgjp" path="res://scenes/scene_switch.tscn" id="3_kr2ft"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_po3tk"]
+
+[sub_resource type="Sky" id="Sky_3gngh"]
+sky_material = SubResource("ProceduralSkyMaterial_po3tk")
+
+[sub_resource type="Environment" id="Environment_c13em"]
+background_mode = 2
+sky = SubResource("Sky_3gngh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dka2y"]
+depth_draw_mode = 2
+albedo_color = Color(0.37642002, 0.58, 0.12760001, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kr2ft"]
+size = Vector2(25, 25)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l7pl7"]
+
+[node name="Lobby" type="Node3D" unique_id=1431427445 groups=["level"]]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=976610489]
+transform = Transform3D(0.7071068, -0.38511795, 0.5930297, 0, 0.83867055, 0.54463905, -0.7071068, -0.38511795, 0.5930297, 5, 5, 5)
+projection = 1
+size = 8.0
+near = 0.001
+far = 95.29
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489899885]
+transform = Transform3D(0.86095464, 0.121695906, -0.49391013, 0.27332148, 0.70821977, 0.6509379, 0.4290134, -0.69542426, 0.57648295, 0, 7, 0)
+light_color = Color(0.85575485, 0.7336398, 0.6237836, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=710886831]
+environment = SubResource("Environment_c13em")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2139627245]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.013902903, 9.536743e-07, 0.0014357567)
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="Ground" unique_id=964350994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018888474, 0, 0.037776947)
+material_override = SubResource("StandardMaterial3D_dka2y")
+mesh = SubResource("PlaneMesh_kr2ft")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1994228747]
+shape = SubResource("WorldBoundaryShape3D_l7pl7")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Ground" unique_id=1779756102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099487066, -0.4998169, 0.00894165)
+size = Vector3(25.06128, 1.0003662, 25.058044)
+
+[node name="iron-fence-border-gate" parent="." unique_id=266764819 instance=ExtResource("1_kr2ft")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3)
+
+[node name="iron-fence-border" parent="." unique_id=1865375148 instance=ExtResource("2_l7pl7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1, 0, 3)
+
+[node name="iron-fence-border2" parent="." unique_id=307842581 instance=ExtResource("2_l7pl7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, 3)
+
+[node name="LevelSwitchArrow" parent="." unique_id=460866769 instance=ExtResource("3_kr2ft")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 3)

@@ -46,7 +46,7 @@ var clicks: int = 0:
 				var random_position = Vector2(cos(random_angle), sin(random_angle)) * random_distance
 				var random_rotation = rng.randf_range(-PI * 0.05, PI * 0.05)
 				
-				instance.global_rotation + Vector3(0, random_rotation, 0)
+				instance.global_rotation += Vector3(0, random_rotation, 0)
 				
 				var tween = get_tree().create_tween().set_parallel()
 				tween.tween_property(instance, "global_position", Vector3(random_position.x, 0.0, random_position.y), duration).as_relative()
@@ -69,7 +69,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func dig() -> void:
@@ -79,6 +79,6 @@ func reset() -> void:
 	clicks = 0
 	open = false
 
-func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_static_body_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		dig()

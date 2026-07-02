@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfjklco1dej1i"]
+
+[ext_resource type="Script" uid="uid://dsotsvbl04dic" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bhim8td3pv7jl" path="res://scenes/levels/level1.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://t55hd3dlfekg" path="res://ui/hud.tscn" id="2_sugp2"]
+
+[node name="Main" type="Node" unique_id=1337487456]
+script = ExtResource("1_sugp2")
+
+[node name="World" type="Node3D" parent="." unique_id=1408619323]
+unique_name_in_owner = true
+
+[node name="Level1" parent="World" unique_id=370910729 instance=ExtResource("2_jyhfs")]
+
+[node name="Hud" parent="." unique_id=423708638 instance=ExtResource("2_sugp2")]
