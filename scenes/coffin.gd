@@ -33,17 +33,6 @@ func open(origin: Vector3) -> void:
 				bone.queue_free()
 				Global.bones += 1
 		)
-		#get_tree().create_timer(1.0).timeout.connect(
-			#func():
-			#var camera = get_viewport().get_camera_3d()
-			#var tween = get_tree().create_tween()
-			#tween.tween_property(bone, "global_position", camera.project_position(Vector2(get_viewport().get_visible_rect().size.x * 0.5, 20.0), 2.0), 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-			#tween.tween_callback(
-				#func ():
-					#bone.queue_free()
-					#Main.bones += 1
-			#)
-		#)
 		await get_tree().create_timer(0.1).timeout
 
 

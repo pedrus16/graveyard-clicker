@@ -3,7 +3,7 @@ extends Camera3D
 var drag_start_position: Vector3
 
 const GROUND_PLANE = Plane(Vector3.UP, 0)
-const RAY_LENGTH = 1000
+const RAY_LENGTH = 1000.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,5 +27,5 @@ func _unhandled_input(event):
 
 func _get_ground_click_location(mouse_position: Vector2) -> Variant:
 	var ray_from = project_ray_origin(mouse_position)
-	var ray_to = ray_from + project_ray_normal(mouse_position) * far
+	var ray_to = ray_from + project_ray_normal(mouse_position) * RAY_LENGTH
 	return GROUND_PLANE.intersects_ray(ray_from, ray_to)

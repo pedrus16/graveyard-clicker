@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcr72b3tjn2g5" path="res://scenes/levels/lobby.tscn" id="1_32lhk"]
 [ext_resource type="PackedScene" uid="uid://bhim8td3pv7jl" path="res://scenes/levels/level1.tscn" id="2_7g83o"]
 [ext_resource type="Script" uid="uid://bkeufec6krq68" path="res://scripts/CameraController.gd" id="3_eb18a"]
+[ext_resource type="PackedScene" uid="uid://c1jiy3nfthif" path="res://scenes/CoffinPickup.tscn" id="4_13lyd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpeaq"]
 
@@ -20,10 +21,12 @@ unique_name_in_owner = true
 
 [node name="Level1" parent="." unique_id=370910729 instance=ExtResource("2_7g83o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+loot = Array[PackedScene]([ExtResource("4_13lyd"), ExtResource("4_13lyd"), ExtResource("4_13lyd"), ExtResource("4_13lyd"), ExtResource("4_13lyd"), ExtResource("4_13lyd")])
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=977599759]
 transform = Transform3D(0.70710677, -0.45451948, 0.54167527, 0, 0.7660445, 0.64278764, -0.70710677, -0.45451948, 0.54167527, 9.330934, 11.761259, 19.674835)
 projection = 1
+current = true
 fov = 35.0
 size = 8.0
 near = 0.001
@@ -31,9 +34,12 @@ far = 95.29
 script = ExtResource("3_eb18a")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1459065419]
-transform = Transform3D(0.86095464, 0.121695906, -0.49391013, 0.27332148, 0.70821977, 0.6509379, 0.4290134, -0.69542426, 0.57648295, 0, 7, 0)
+transform = Transform3D(0.8609547, 0.121695906, -0.49391016, 0.27332148, 0.7082198, 0.6509379, 0.4290134, -0.69542426, 0.576483, 0, 7, 0)
 light_color = Color(0.85575485, 0.7336398, 0.6237836, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1554720465]
 environment = SubResource("Environment_eb18a")
+
+[node name="Coffin" parent="." unique_id=282615336 instance=ExtResource("4_13lyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1706543, 0, 8.847595)
