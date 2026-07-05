@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bk8wf4w5hfwc7"]
+
+[ext_resource type="PackedScene" uid="uid://ddoejdp6x4187" path="res://assets/sources/models/grave.fbx" id="1_kdo1t"]
+
+[node name="grave" unique_id=1594187113 instance=ExtResource("1_kdo1t")]
+
+[node name="grave" parent="." index="0" unique_id=1139411872]
+ignore_occlusion_culling = true

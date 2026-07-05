@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var content: int = 4
+@export var canOpen: bool = false
 
 var Bone = preload("res://scenes/Bone.tscn")
 
@@ -8,7 +9,7 @@ var rng = RandomNumberGenerator.new()
 var _open = false
 
 func open(origin: Vector3) -> void:
-	if _open: return
+	if _open  or not canOpen: return
 	_open = true
 	%CoffinLid/RigidBody3D.freeze = false
 	%CoffinLid/RigidBody3D.apply_impulse(Vector3(0, 10.0, 0), origin - %CoffinLid/RigidBody3D.global_position)

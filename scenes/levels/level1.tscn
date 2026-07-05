@@ -29,6 +29,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="PlaneMesh" type="MeshInstance3D" parent="Ground" unique_id=1432866174]
 material_override = SubResource("StandardMaterial3D_4tcl0")
+ignore_occlusion_culling = true
 mesh = SubResource("PlaneMesh_dd0lh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1142432754]
